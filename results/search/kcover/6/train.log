@@ -1,0 +1,47 @@
+11:51:19 INFO Configuration:
+name: search/kcover/6
+seed: 1
+
+log_level: info
+report_interval: 10
+eval_interval: 50
+save_interval: 50
+
+data_path: data/kcover
+train_sets:
+  - name: 6-10-0.5
+    samples: 1000
+    max_tries: 5
+    max_flips: 500
+    iterations: 10000
+
+eval_set:
+  name: 7-11-0.5
+  samples: 10
+  max_tries: 10
+  max_flips: 500
+
+model_path: results/search/kcover/5/model_best.pth
+
+gnn_hidden_size: 32
+readout_hidden_size: 64
+
+cycles: 1
+optimizer: RMSprop
+lr: 0.0001
+lr_milestones: [200, 500, 1000, 5000]
+lr_decay: 0.8
+
+method: reinforce
+discount: 0.25
+walk_prob: 0.5
+
+11:51:19 INFO Device: cpu
+11:51:19 INFO Loading model parameters from results/search/kcover/5/model_best.pth
+11:51:28 INFO Loaded 1000 training problems from data/kcover
+11:51:28 INFO Loaded 10 evaluation problems from data/kcover
+11:51:28 INFO Cycle: 1
+11:51:28 INFO Train set: 6-10-0.5
+11:54:33 INFO (Eval)    Acc:     100.00,  Flips:     343.75 (med) /     318.70 (mean) /     492.90 (max)
+11:54:33 INFO Saving best model parameters
+11:58:41 INFO Iter:     10,  Acc:      70.00,  Flips:     332.00 (med) /     300.92 (mean) /     443.60 (max)
